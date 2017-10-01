@@ -1,0 +1,6 @@
+*.iml
+target/*
+plugin/*.iml
+plugin/target/*
+examples/rapid-store/client-java/target/*
+examples/rapid-store/service/target/*
