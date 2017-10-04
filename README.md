@@ -1,6 +1,7 @@
 # RAPID Client Integration
 [![Build Status](https://travis-ci.org/packleader/rapid-client-integration.svg?branch=master)](https://travis-ci.org/packleader/rapid-client-integration)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.packleader/rapid-client-integration/badge.svg)](https://mvnrepository.com/artifact/com.github.packleader/rapid-client-integration)
+
 **Simplify the process of adoption so your clients can focus on delivering awesome!**
 
 ## Table Of Contents

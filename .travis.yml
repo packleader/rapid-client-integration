@@ -14,8 +14,3 @@ deploy:
       repo: packleader/rapid-client-integration
       tags: true
       jdk: oraclejdk8
-
-
-notifications:
-  email:
-    - matthew.c.lawrence@gmail.com
