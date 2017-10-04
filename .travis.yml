@@ -12,7 +12,7 @@ deploy:
     skip_cleanup: true
     on:
       repo: packleader/rapid-client-integration
-      branch: master
+      branch: feature/ci-build
       jdk: oraclejdk8
   -
     provider: script
