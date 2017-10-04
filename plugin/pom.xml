@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.packleader.rapid</groupId>
+    <groupId>com.github.packleader.rapid</groupId>
     <artifactId>rapid-client-integration-maven-plugin</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
     <description>A maven build plugin to generate APIs for interfacing with RESTful services.</description>
 
-    <name>rapid-client-integration-maven-plugin</name>
+    <name>${project.artifactId}</name>
 
     <properties>
         <io.swagger.version>2.2.3</io.swagger.version>

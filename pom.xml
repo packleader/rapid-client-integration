@@ -2,10 +2,33 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.packleader.rapid</groupId>
+    <groupId>com.github.packleader.rapid</groupId>
     <artifactId>rapid-client-integration-maven-plugin-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>A maven build plugin to generate APIs for interfacing with RESTful services.</description>
+    <url>https://github.com/packleader/rapid-client-integration</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>https://github.com/packleader/rapid-client-integration</url>
+        <connection>scm:git:git://github.com/packleader/rapid-client-integration.git</connection>
+        <developerConnection>scm:git:git@github.com:packleader/rapid-client-integration.git</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <name>Matthew Lawrence</name>
+            <id>packleader</id>
+        </developer>
+    </developers>       
 
     <modules>
         <module>plugin</module>

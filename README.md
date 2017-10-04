@@ -72,9 +72,9 @@ The easiest way to get started is to copy the [example pom](examples/rapid-store
 ```xml
 <plugin>
     <!-- Here's the RAPID plugin -->
-    <groupId>com.packleader.rapid</groupId>
+    <groupId>com.github.packleader.rapid</groupId>
     <artifactId>rapid-client-integration-maven-plugin</artifactId>
-    <version>${com.packleader.rapid.version}</version>
+    <version>${com.github.packleader.rapid.version}</version>
     <configuration>
         <apiSource>
             <locations>
