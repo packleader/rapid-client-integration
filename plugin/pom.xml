@@ -17,13 +17,14 @@
         <java.version>1.8</java.version>
         <org.testng.version>6.9.9</org.testng.version>
         <org.modelmapper.version>0.7.8</org.modelmapper.version>
-        <org.powermock.version>1.6.2</org.powermock.version>
+        <org.powermock.version>2.0.0-beta.5</org.powermock.version>
         <org.codehaus.plexus.version>1.7.1</org.codehaus.plexus.version>
         <org.apache.maven.version>3.5.0</org.apache.maven.version>
         <org.apache.maven.plugin-tools.version>3.5</org.apache.maven.plugin-tools.version>
         <com.fasterxml.jackson.core.version>2.8.5</com.fasterxml.jackson.core.version>
-        <org.projectlombok.version>1.16.6</org.projectlombok.version>
+        <org.projectlombok.version>1.16.18</org.projectlombok.version>
         <org.apache.commons.version>2.1</org.apache.commons.version>
+        <javax.xml.bind.version>2.3.0</javax.xml.bind.version>
     </properties>
 
     <dependencies>
@@ -91,6 +92,12 @@
         </dependency>
 
         <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${javax.xml.bind.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${org.testng.version}</version>
@@ -106,7 +113,7 @@
 
         <dependency>
             <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito</artifactId>
+            <artifactId>powermock-api-mockito2</artifactId>
             <version>${org.powermock.version}</version>
             <scope>test</scope>
         </dependency>
@@ -166,8 +173,12 @@
         <repository>
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <releases><enabled>false</enabled></releases>
-            <snapshots><enabled>true</enabled></snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
