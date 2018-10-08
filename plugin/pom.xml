@@ -11,19 +11,20 @@
     <name>${project.artifactId}</name>
 
     <properties>
-        <io.swagger.version>2.2.3</io.swagger.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <io.swagger.version>2.3.1</io.swagger.version>
         <mojo-executor-version>2.2.0</mojo-executor-version>
-        <com.github.kongchen.version>3.1.6-SNAPSHOT</com.github.kongchen.version>
+        <com.github.kongchen.version>3.1.7</com.github.kongchen.version>
         <java.version>1.8</java.version>
-        <org.testng.version>6.9.9</org.testng.version>
-        <org.modelmapper.version>0.7.8</org.modelmapper.version>
-        <org.powermock.version>1.6.2</org.powermock.version>
+        <org.testng.version>6.14.3</org.testng.version>
+        <org.modelmapper.version>2.3.0</org.modelmapper.version>
+        <org.powermock.version>1.7.4</org.powermock.version>
         <org.codehaus.plexus.version>1.7.1</org.codehaus.plexus.version>
-        <org.apache.maven.version>3.5.0</org.apache.maven.version>
-        <org.apache.maven.plugin-tools.version>3.5</org.apache.maven.plugin-tools.version>
-        <com.fasterxml.jackson.core.version>2.8.5</com.fasterxml.jackson.core.version>
-        <org.projectlombok.version>1.16.6</org.projectlombok.version>
-        <org.apache.commons.version>2.1</org.apache.commons.version>
+        <org.apache.maven.version>3.5.4</org.apache.maven.version>
+        <org.apache.maven.plugin-tools.version>3.5.2</org.apache.maven.plugin-tools.version>
+        <org.projectlombok.version>1.18.2</org.projectlombok.version>
+        <org.apache.commons.version>2.2</org.apache.commons.version>
     </properties>
 
     <dependencies>
@@ -62,12 +63,6 @@
             <groupId>io.swagger</groupId>
             <artifactId>swagger-codegen</artifactId>
             <version>${io.swagger.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${com.fasterxml.jackson.core.version}</version>
         </dependency>
 
         <dependency>
@@ -118,7 +113,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>3.8.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -127,7 +122,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
-                <version>3.5</version>
+                <version>3.5.2</version>
                 <executions>
                     <execution>
                         <id>default-descriptor</id>
