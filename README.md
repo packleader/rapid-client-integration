@@ -56,14 +56,14 @@ Here's how one might call the RAPID Store using a RAPID-generated API.  Note tha
 ## Features
 - Supports services written in Java and annotated with Swagger 2.0 annotations
 - Works with both [JAX-RS](https://github.com/jax-rs/) and [SpringMvc](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html) services
-- Capable of generating clients in a wide variety of languages by leveraging [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.2.2)
+- Capable of generating clients in a wide variety of languages by leveraging [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.3.1)
 - Creates DTO's for all of the service's request and response objects, including enums and complex objects
 - Generates a simplified API that replaces traditional HTTP clients and URL building with simple method calls
 - Integrates seamlessly with existing services and build jobs
 - Supports custom templates to allow generating code in any language and for any use case
 
 ## How It Works
-The RAPID plugin runs during the `generate-sources` phase of the Maven lifecycle.  Using the [swagger-maven-plugin](https://github.com/kongchen/swagger-maven-plugin/tree/swagger-maven-plugin-3.1.4), it searches your service's jar for Swagger annotations and generates the appropriate Swagger document.  The plugin then uses that document as input to [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.2.2) to generate the source code for the client API.  Finally, the generated source is built and packaged by Maven during the `compile` and `package` phases.
+The RAPID plugin runs during the `generate-sources` phase of the Maven lifecycle.  Using the [swagger-maven-plugin](https://github.com/kongchen/swagger-maven-plugin/tree/swagger-maven-plugin-3.1.7), it searches your service's jar for Swagger annotations and generates the appropriate Swagger document.  The plugin then uses that document as input to [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.3.1) to generate the source code for the client API.  Finally, the generated source is built and packaged by Maven during the `compile` and `package` phases.
 
 It is important to note that the RAPID plugin can only search for Swagger annotations in compiled class files; it cannot parse raw source files.  For this reason, it can only be used to generate a client API from code that has already been compiled (perhaps in another project or in a separate module within the same project).
 
@@ -113,7 +113,7 @@ The easiest way to get started is to copy the [example pom](examples/rapid-store
 To adapt this template for your service, you will need to update the following parameters:
 - `locations` - This option should contain a list of all the packages that contain your REST endpoints.  Each package will be recursively scanned for Swagger annotations.
 - `springmvc` - This should be set to `true` if your service uses SpringMvc or `false` if using JAX-RS.
-- `language` - The language for the generated client sources.  Must be one of the [languages supported by swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.2.2/README.md#overview).
+- `language` - The language for the generated client sources.  Must be one of the [languages supported by swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.3.1/README.md#overview).
 - `library` - Optional configuration parameter.  See [`code-generation`](README.md#codegeneration) below for more details.
 - `apiPackage`, `invokerPackage`, and `modelPackage` - These values define the package names for the generated sources.  Each client jar must have a unique set of packages.
 
@@ -125,27 +125,27 @@ Several advanced options are available to further customize the plugin's behavio
 - The `codeGeneration` element configures how the client code will be generated
 
 #### `apiSource`
-The RAPID plugin uses the [swagger-maven-plugin](https://github.com/kongchen/swagger-maven-plugin/tree/swagger-maven-plugin-3.1.4) project to inspect your source code.  The `apiSource` configuration element is borrowed from that project with the following differences:
+The RAPID plugin uses the [swagger-maven-plugin](https://github.com/kongchen/swagger-maven-plugin/tree/swagger-maven-plugin-3.1.7) project to inspect your source code.  The `apiSource` configuration element is borrowed from that project with the following differences:
 - Only one `apiSource` element can be specified.  You can still specify multiple `locations` if you like.
 - The RAPID plugin only supports the following options at this time: `locations`, `info`, `springmvc`, `securityDefinitions`, `swaggerApiReader`, `modelSubstitute`
 - The `info` parameter is not required.  If it is omitted, the plugin will create a default `info` with `${project.name}` as the title and `${project.name}` as the version.
-Please see [this documentation](https://github.com/kongchen/swagger-maven-plugin/tree/swagger-maven-plugin-3.1.4#configuration-for-apisource) for more information.
+Please see [this documentation](https://github.com/kongchen/swagger-maven-plugin/tree/swagger-maven-plugin-3.1.7#configuration-for-apisource) for more information.
 
 #### `codeGeneration`
-The RAPID plugin generates the client API source using [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.2.2).  The configuration options are modeled after those in the [swagger-codegen-maven-plugin](https://github.com/swagger-api/swagger-codegen/tree/v2.2.2/modules/swagger-codegen-maven-plugin) except for the following:
+The RAPID plugin generates the client API source using [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.3.1).  The configuration options are modeled after those in the [swagger-codegen-maven-plugin](https://github.com/swagger-api/swagger-codegen/tree/v2.3.1/modules/swagger-codegen-maven-plugin) except for the following:
 - The following options are not supported at this time: `inputSpec`, `addCompileSourceRoot`, `useJaxbAnnotations`, `configHelp`
 - The `library` parameter may be specified in `configOptions` or directly under `codeGeneration`
 - When generating a Java client, the `withXml` parameter can be specified under `configOptions` to control whether the plugin generates XML annotations on the models.  The default is `false`.
 - The optional `generateApis` parameter controls whether the plugin will generate the API classes.  If it is set to `false`, only the models will be generated.  This is useful if you only want to distribute DTO's and not a full-fledged client API.  The default value is `true`.
 - The optional `generateModels` parameter controls whether the plugin will generate the model objects.  If it is set to `false`, the plugin will generate the API classes, but not the models.  This option requires that you have already published your DTO's via some other method.  In this case, you will need to set the `modelPackage` parameter to reflect the package where your DTO's reside.  Note that this will only work if all the DTO's are in a single package.  The default value is `true`.
-- Please see [this documentation](https://github.com/swagger-api/swagger-codegen/tree/v2.2.2/modules/swagger-codegen-maven-plugin#general-configuration-parameters) for more information.
+- Please see [this documentation](https://github.com/swagger-api/swagger-codegen/tree/v2.3.1/modules/swagger-codegen-maven-plugin#general-configuration-parameters) for more information.
 
 ## Multi-Language Support
-The RAPID plugin allows for generating client APIs in a wide variety of languages.  Because it is built on top of [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.2.2), the plugin can generate any language supported by that project.  Please see [this list](https://github.com/swagger-api/swagger-codegen/tree/v2.2.2#overview) of currently supported languages.  If none of the current languages suit your needs, the RAPID plugin allows you to provide your own generator and/or templates.
+The RAPID plugin allows for generating client APIs in a wide variety of languages.  Because it is built on top of [swagger-codegen](https://github.com/swagger-api/swagger-codegen/tree/v2.3.1), the plugin can generate any language supported by that project.  Please see [this list](https://github.com/swagger-api/swagger-codegen/tree/v2.3.1#overview) of currently supported languages.  If none of the current languages suit your needs, the RAPID plugin allows you to provide your own generator and/or templates.
 
-Your custom generator must extend `io.swagger.codegen.DefaultCodegen` and provide customized logic for how the Swagger spec is applied to the template files.  To use your custom generator, pass the fully-qualified class name as the `language` config parameter.  See the [built-in generators](https://github.com/swagger-api/swagger-codegen/tree/v2.2.2/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages) for more information.
+Your custom generator must extend `io.swagger.codegen.DefaultCodegen` and provide customized logic for how the Swagger spec is applied to the template files.  To use your custom generator, pass the fully-qualified class name as the `language` config parameter.  See the [built-in generators](https://github.com/swagger-api/swagger-codegen/tree/v2.3.1/modules/swagger-codegen/src/main/java/io/swagger/codegen/languages) for more information.
 
-If you want to add support for another language, you can provide a set of mustache templates for that language.  These templates will be used as the basis for the generated code.  To use your custom templates, provide the path for the templates in the `templateDirectory` parameter.  See the [built-in templates](https://github.com/swagger-api/swagger-codegen/tree/v2.2.2/modules/swagger-codegen/src/main/resources) for more information.
+If you want to add support for another language, you can provide a set of mustache templates for that language.  These templates will be used as the basis for the generated code.  To use your custom templates, provide the path for the templates in the `templateDirectory` parameter.  See the [built-in templates](https://github.com/swagger-api/swagger-codegen/tree/v2.3.1/modules/swagger-codegen/src/main/resources) for more information.
 
 ## Tips & Troubleshooting
 
