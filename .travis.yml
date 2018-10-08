@@ -12,13 +12,5 @@ deploy:
     skip_cleanup: true
     on:
       repo: packleader/rapid-client-integration
-      branch: feature/ci-build
-      jdk: oraclejdk8
-  -
-    provider: script
-    script: .travis/deploy.sh
-    skip_cleanup: true
-    on:
-      repo: packleader/rapid-client-integration
       tags: true
       jdk: oraclejdk8
