@@ -1,11 +1,21 @@
 language: java
 
+if: branch = master OR tag IS present
+
 jdk:
   - oraclejdk8
 
 script: mvn --settings .travis/settings.xml clean  verify
 
 deploy:
+  -
+    provider: script
+    script: .travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: packleader/rapid-client-integration
+      branch: master
+      jdk: oraclejdk8
   -
     provider: script
     script: .travis/deploy.sh
