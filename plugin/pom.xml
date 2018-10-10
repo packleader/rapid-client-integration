@@ -4,7 +4,7 @@
 
     <groupId>com.github.packleader.rapid</groupId>
     <artifactId>rapid-client-integration-maven-plugin</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
     <description>A maven build plugin to generate APIs for interfacing with RESTful services.</description>
     <url>https://github.com/packleader/rapid-client-integration</url>
