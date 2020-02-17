@@ -18,6 +18,6 @@ source .travis/gpg.sh
 mvn clean deploy --settings .travis/settings.xml -DskipTests=true -B -U -Prelease
 
 if [ ! -z "$TRAVIS" ]; then
-    shred -v ~/.gnupg/*
+    find ~/.gnupg/ -type f -exec shred -u {} \;
     rm -rf ~/.gnupg
 fi

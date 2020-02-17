@@ -17,7 +17,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.testng.annotations.Test;
 
 import java.io.File;
-import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.util.Arrays;
@@ -104,7 +104,7 @@ public class RapidComponentConfiguratorTest extends BaseTest {
         whenNew(File.class).withArguments(resourceMockDirectory).thenReturn(fileMock);
         when(fileMock.isDirectory()).thenReturn(true);
         when(fileMock.toURI()).thenReturn(uriMock);
-        when(uriMock.toURL()).thenThrow(IOException.class);
+        when(uriMock.toURL()).thenThrow(MalformedURLException.class);
 
         rapidComponentConfigurator.configureComponent(componentMock, configurationMock, expressionEvaluatorMock, containerRealmMock, listenerMock);
     }

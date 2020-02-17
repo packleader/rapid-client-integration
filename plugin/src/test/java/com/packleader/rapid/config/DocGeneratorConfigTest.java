@@ -67,4 +67,11 @@ public class DocGeneratorConfigTest extends BaseTest {
 
         assertEquals(result, buildDirectory + "/generated-swagger-ui");
     }
+
+    @Test
+    public void testGetOutputFormats() throws Exception {
+        String result = docGeneratorConfig.getOutputFormats();
+
+        assertEquals(result, "json");
+    }
 }
