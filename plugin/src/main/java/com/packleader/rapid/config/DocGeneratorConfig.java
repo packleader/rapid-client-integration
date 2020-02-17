@@ -34,4 +34,8 @@ public class DocGeneratorConfig extends RapidConfig {
         return getSwaggerPath();
     }
 
+    public final String getOutputFormats() {
+        return "json";
+    }
+
 }

@@ -145,10 +145,10 @@ public class CodeGeneratorTest extends BaseTest {
     private void verifyCodegenConfiguratorUtilsMethod(CodegenConfigurator configurator, String value,
                                                       BiConsumer<String, CodegenConfigurator> consumer) {
         if (value != null) {
-            verifyStatic();
+            verifyStatic(CodegenConfiguratorUtils.class);
             consumer.accept(value, configurator);
         } else {
-            verifyStatic(Mockito.never());
+            verifyStatic(CodegenConfiguratorUtils.class, Mockito.never());
             consumer.accept(Mockito.anyString(), Mockito.any());
         }
     }

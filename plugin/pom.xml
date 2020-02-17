@@ -20,18 +20,19 @@
         <maven.deploy.skip>false</maven.deploy.skip>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <io.swagger.version>2.3.1</io.swagger.version>
         <mojo-executor-version>2.2.0</mojo-executor-version>
-        <com.github.kongchen.version>3.1.7</com.github.kongchen.version>
         <java.version>1.8</java.version>
-        <org.testng.version>6.14.3</org.testng.version>
-        <org.modelmapper.version>2.3.0</org.modelmapper.version>
-        <org.powermock.version>1.7.4</org.powermock.version>
-        <org.codehaus.plexus.version>1.7.1</org.codehaus.plexus.version>
-        <org.apache.maven.version>3.5.4</org.apache.maven.version>
-        <org.apache.maven.plugin-tools.version>3.5.2</org.apache.maven.plugin-tools.version>
-        <org.projectlombok.version>1.18.2</org.projectlombok.version>
-        <org.apache.commons.version>2.2</org.apache.commons.version>
+
+        <org.apache.maven.version>3.6.3</org.apache.maven.version>
+        <org.apache.maven.plugin-tools.version>3.6.0</org.apache.maven.plugin-tools.version>
+        <com.github.kongchen.version>3.1.8</com.github.kongchen.version>
+        <org.modelmapper.version>2.3.6</org.modelmapper.version>
+        <io.swagger.version>2.4.12</io.swagger.version>
+        <org.projectlombok.version>1.18.12</org.projectlombok.version>
+        <org.codehaus.plexus.version>2.1.0</org.codehaus.plexus.version>
+        <org.apache.commons.version>2.6.0</org.apache.commons.version>
+        <org.testng.version>7.1.0</org.testng.version>
+        <org.powermock.version>2.0.5</org.powermock.version>
     </properties>
 
     <dependencies>
@@ -108,7 +109,7 @@
 
         <dependency>
             <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito</artifactId>
+            <artifactId>powermock-api-mockito2</artifactId>
             <version>${org.powermock.version}</version>
             <scope>test</scope>
         </dependency>
@@ -120,7 +121,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -129,7 +130,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
-                <version>3.5.2</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <id>default-descriptor</id>
@@ -183,7 +184,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
+                        <version>3.2.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
@@ -196,7 +197,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.10.4</version>
+                        <version>3.1.1</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
