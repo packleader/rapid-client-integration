@@ -1,4 +1,6 @@
 language: java
+os: linux
+dist: trusty
 
 if: branch = master OR tag IS present
 
