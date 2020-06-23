@@ -10,13 +10,13 @@
     <parent>
         <groupId>com.github.packleader.rapid.store</groupId>
         <artifactId>rapid-store-service-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.2-SNAPSHOT</version>
     </parent>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <com.github.packleader.rapid.version>1.0.1-SNAPSHOT</com.github.packleader.rapid.version>
+        <com.github.packleader.rapid.version>1.0.2-SNAPSHOT</com.github.packleader.rapid.version>
         <com.fasterxml.jackson.version>2.9.7</com.fasterxml.jackson.version>
         <org.springframework.version>5.2.3.RELEASE</org.springframework.version>
     </properties>
@@ -65,8 +65,8 @@
     </build>
 
     <dependencies>
-        <!-- Required dependency on the RAPID Store service artifact -->
-        <!-- Update this dependency to reference an artifact containing your service's class files.  The artifact must be a JAR. -->
+        <!-- Required dependency on the RAPID Store service artifact.  The artifact must be a JAR and may be a SpringBoot JAR. -->
+        <!-- Update this dependency to reference an artifact containing your service's class files. -->
         <dependency>
             <groupId>com.github.packleader.rapid.store</groupId>
             <artifactId>rapid-store-service</artifactId>

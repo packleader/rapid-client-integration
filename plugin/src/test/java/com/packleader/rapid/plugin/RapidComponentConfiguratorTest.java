@@ -24,10 +24,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static org.mockito.Matchers.any;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.powermock.api.mockito.PowerMockito.*;
-import static org.testng.Assert.*;
 
 @PrepareForTest(RapidComponentConfigurator.class)
 public class RapidComponentConfiguratorTest extends BaseTest {
@@ -124,7 +124,7 @@ public class RapidComponentConfiguratorTest extends BaseTest {
 
         rapidComponentConfigurator.configureComponent(componentMock, configurationMock, expressionEvaluatorMock, containerRealmMock, listenerMock);
 
-        Mockito.verify(fileMock, times(0)).toURI();
-        Mockito.verify(containerRealmMock, times(0)).addConstituent(any());
+        Mockito.verify(fileMock, never()).toURI();
+        Mockito.verify(containerRealmMock, never()).addConstituent(any());
     }
 }

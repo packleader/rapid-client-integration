@@ -29,7 +29,6 @@ import static org.testng.Assert.assertSame;
 @PrepareForTest(RapidMojo.class)
 public class RapidMojoTest extends BaseTest {
 
-
     @Mock
     private MavenProject mavenProjectMock;
 
@@ -46,6 +45,9 @@ public class RapidMojoTest extends BaseTest {
     private DefaultValueProvider defaultValueProviderMock;
 
     @Mock
+    private RapidDependencyHelper rapidDependencyHelperMock;
+
+    @Mock
     private ModelMapper modelMapperMock;
 
     @Mock
@@ -55,7 +57,7 @@ public class RapidMojoTest extends BaseTest {
     private CodeGeneratorConfig codeGeneratorConfigMock;
 
     @InjectMocks
-    private RapidMojo rapidMojo = new RapidMojo();
+    private RapidMojo rapidMojo;
 
     @BeforeMethod
     @Override
@@ -90,6 +92,7 @@ public class RapidMojoTest extends BaseTest {
 
         testExecute(generatedSourcesDirectory, outputDir);
 
+        Mockito.verify(rapidDependencyHelperMock).unpackDependencies();
         Mockito.verify(mavenProjectMock).addCompileSourceRoot(sourceJavaFolder);
         Mockito.verify(fileMock).mkdirs();
     }
