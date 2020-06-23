@@ -54,6 +54,9 @@ public class RapidMojo extends AbstractMojo {
     @Component
     private DefaultValueProvider defaultValueProvider;
 
+    @Component
+    private RapidDependencyHelper rapidDependencyHelper;
+
     private ModelMapper modelMapper;
 
     public RapidMojo() {
@@ -67,6 +70,8 @@ public class RapidMojo extends AbstractMojo {
             getLog().info("<skip> parameter was set to true.  Skipping plugin.");
             return;
         }
+
+        rapidDependencyHelper.unpackDependencies();
 
         createOutputDirectory();
 

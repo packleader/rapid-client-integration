@@ -4,7 +4,7 @@
 
     <groupId>com.github.packleader.rapid</groupId>
     <artifactId>rapid-client-integration-maven-plugin</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
     <description>A maven build plugin to generate APIs for interfacing with RESTful services.</description>
     <url>https://github.com/packleader/rapid-client-integration</url>
@@ -33,6 +33,7 @@
         <org.apache.commons.version>2.6.0</org.apache.commons.version>
         <org.testng.version>7.1.0</org.testng.version>
         <org.powermock.version>2.0.5</org.powermock.version>
+        <org.javassist.version>3.25.0-GA</org.javassist.version>
     </properties>
 
     <dependencies>
@@ -114,6 +115,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${org.javassist.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

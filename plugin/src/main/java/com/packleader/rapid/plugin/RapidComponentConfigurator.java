@@ -1,6 +1,5 @@
 package com.packleader.rapid.plugin;
 
-
 import com.github.kongchen.swagger.docgen.mavenplugin.IncludeProjectDependenciesComponentConfigurator;
 import org.apache.maven.model.Resource;
 import org.codehaus.classworlds.ClassRealm;
