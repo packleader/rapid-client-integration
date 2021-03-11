@@ -27,7 +27,7 @@
         <org.apache.maven.plugin-tools.version>3.6.0</org.apache.maven.plugin-tools.version>
         <com.github.kongchen.version>3.1.8</com.github.kongchen.version>
         <org.modelmapper.version>2.3.6</org.modelmapper.version>
-        <io.swagger.version>2.4.12</io.swagger.version>
+        <io.swagger.version>2.4.19</io.swagger.version>
         <org.projectlombok.version>1.18.12</org.projectlombok.version>
         <org.codehaus.plexus.version>2.1.0</org.codehaus.plexus.version>
         <org.apache.commons.version>2.6.0</org.apache.commons.version>
